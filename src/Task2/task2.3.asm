@@ -12,7 +12,6 @@ asm_main:
     push    ebp
     mov     ebp, esp
 
-    ; fill array 1–100
     mov     ecx, 100
     lea     edi, [array]
     mov     ebx, 1
@@ -22,19 +21,16 @@ fillLoop:
     inc     ebx
     loop    fillLoop
 
-    ; read start
     mov     eax, startPoint
     call    print_string
     call    read_int
-    mov     ebx, eax        ; start
+    mov     ebx, eax       
 
-    ; read end
     mov     eax, endingPoint
     call    print_string
     call    read_int
-    mov     edx, eax        ; end
+    mov     edx, eax      
 
-    ; check invalid range
     cmp     ebx, 1
     jl      invalid
     cmp     edx, 100
@@ -42,7 +38,6 @@ fillLoop:
     cmp     ebx, edx
     jg      invalid
 
-    ; calculate sum
     lea     esi, [array]
     mov     eax, ebx
     dec     eax
